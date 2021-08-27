@@ -3,6 +3,7 @@ package com.dunaevi.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +17,9 @@ public class FamilyIncome {
 	@Column(name="income")
 	private int income;
 	
+	@ManyToOne
 	@Column(name="family_member_id")
-	private int familyMemberId;
+	private FamilyMember familyMember;
 	
 	public FamilyIncome() {
 		
@@ -39,13 +41,16 @@ public class FamilyIncome {
 		this.income = income;
 	}
 
-	public int getFamilyMemberId() {
-		return familyMemberId;
-	}
+    public FamilyMember getFamilyMember() {
+    
+        return familyMember;
+    }
 
-	public void setFamilyMemberId(int familyMemberId) {
-		this.familyMemberId = familyMemberId;
-	}
+    public void setFamilyMember(FamilyMember familyMember) {
+    
+        this.familyMember = familyMember;
+    }
+
 	
 	
 

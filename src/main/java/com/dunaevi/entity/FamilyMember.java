@@ -1,10 +1,13 @@
 package com.dunaevi.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,9 @@ public class FamilyMember {
 
 	@Column(name = "name")
 	private String name;
+	
+	@OneToMany(mappedBy = "family_member_id")
+	private List<FamilyIncome> familyIncomes; 
 
 	public FamilyMember() {
 
@@ -44,5 +50,15 @@ public class FamilyMember {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+    public List<FamilyIncome> getFamilyIncomes() {
+    
+        return familyIncomes;
+    }
+
+    public void setFamilyIncomes(List<FamilyIncome> familyIncomes) {
+    
+        this.familyIncomes = familyIncomes;
+    }
 
 }

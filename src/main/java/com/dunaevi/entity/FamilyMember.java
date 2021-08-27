@@ -22,7 +22,7 @@ public class FamilyMember {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(mappedBy = "family_member_id")
+	@OneToMany(mappedBy = "familyMember")
 	private List<FamilyIncome> familyIncomes; 
 
 	public FamilyMember() {

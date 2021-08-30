@@ -1,10 +1,15 @@
 package com.dunaevi.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +35,9 @@ public class MonthEntry {
 
 	@Column(name = "actual_state")
 	private int actualState;
+
+	@OneToMany(mappedBy = "monthEntryId", fetch = FetchType.LAZY)
+	private List<OutputItem> outputItems;
 
 	public MonthEntry() {
 
@@ -83,4 +91,22 @@ public class MonthEntry {
 		this.actualState = actualState;
 	}
 
+	public List<OutputItem> getOutputItems() {
+		return outputItems;
+	}
+
+	public void setOutputItems(List<OutputItem> outputItems) {
+		this.outputItems = outputItems;
+	}
+
+	public void add(OutputItem outputItem) {
+
+		if (outputItems == null) {
+			outputItems = new ArrayList<>();
+		}
+
+		outputItems.add(outputItem);
+
+		outputItem.setMonthEntryId(this);
+	}
 }

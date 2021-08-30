@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,8 +30,9 @@ public class OutputItem {
 	@Column(name = "item_type")
 	private String itemType;
 
-	@Column(name = "month_entry_id")
-	private int monthEntryId;
+	@ManyToOne
+	@JoinColumn(name = "month_entry_id")
+	private MonthEntry monthEntryId;
 
 	public OutputItem() {
 
@@ -75,11 +78,11 @@ public class OutputItem {
 		this.itemType = itemType;
 	}
 
-	public int getMonthEntryId() {
+	public MonthEntry getMonthEntryId() {
 		return monthEntryId;
 	}
 
-	public void setMonthEntryId(int monthEntryId) {
+	public void setMonthEntryId(MonthEntry monthEntryId) {
 		this.monthEntryId = monthEntryId;
 	}
 

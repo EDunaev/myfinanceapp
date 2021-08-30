@@ -1,9 +1,11 @@
 package com.dunaevi.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,9 +23,9 @@ public class FamilyMember {
 
 	@Column(name = "name")
 	private String name;
-	
-	@OneToMany(mappedBy = "familyMember")
-	private List<FamilyIncome> familyIncomes; 
+
+	@OneToMany(mappedBy = "familyMember", fetch = FetchType.LAZY)
+	private List<FamilyIncome> familyIncomes;
 
 	public FamilyMember() {
 
@@ -51,14 +53,24 @@ public class FamilyMember {
 		this.name = name;
 	}
 
-    public List<FamilyIncome> getFamilyIncomes() {
-    
-        return familyIncomes;
-    }
+	public List<FamilyIncome> getFamilyIncomes() {
 
-    public void setFamilyIncomes(List<FamilyIncome> familyIncomes) {
-    
-        this.familyIncomes = familyIncomes;
-    }
+		return familyIncomes;
+	}
 
+	public void setFamilyIncomes(List<FamilyIncome> familyIncomes) {
+
+		this.familyIncomes = familyIncomes;
+	}
+
+	public void add(FamilyIncome familyIncome) {
+
+		if (familyIncomes == null) {
+			familyIncomes = new ArrayList<>();
+		}
+
+		familyIncomes.add(familyIncome);
+
+		familyIncome.setFamilyMember(this);
+	}
 }

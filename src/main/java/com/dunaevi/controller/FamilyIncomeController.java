@@ -13,7 +13,7 @@ import com.dunaevi.service.FamilyIncomeService;
 
 //@Path("/windel")
 @RestController
-public class WindelSchichtController {
+public class FamilyIncomeController {
 
 	@Autowired
 	private FamilyIncomeService familyIncomeService;

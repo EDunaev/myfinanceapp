@@ -1,10 +1,13 @@
 package com.dunaevi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dunaevi.entity.FamilyIncome;
 import com.dunaevi.service.FamilyIncomeService;
 
 //import de.dunaev.dao.DaoException;
@@ -15,23 +18,12 @@ import com.dunaevi.service.FamilyIncomeService;
 @RestController
 public class FamilyIncomeController {
 
-	@Autowired
-	private FamilyIncomeService familyIncomeService;
-//		public WindelSchichtResource() throws DaoException {
-//			dao = DaoFactory.getWindelSchichtDao();
-//		}
-	
-	
-//		@GET
-//		public String getAll() throws Exception {
-//			
-//			return "HELLOO";
-//		}
+    @Autowired
+    private FamilyIncomeService familyIncomeService;
 
-	
-	@GetMapping("/hello")
-	public String listCustomers(Model theModel) {
-		
-		return "HELLLO " + familyIncomeService.getFamilyIncome(0).getIncome();
-	}
+    @GetMapping("/income")
+    public List<FamilyIncome> listCustomers(Model theModel) {
+
+        return familyIncomeService.getFamilyIncome();
+    }
 }

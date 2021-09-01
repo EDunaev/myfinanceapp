@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dunaevi.dao.OutputItemDao;
-import com.dunaevi.entity.FamilyIncome;
 import com.dunaevi.entity.OutputItem;
 
 @Repository

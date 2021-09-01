@@ -162,6 +162,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.1</version>
 					<configuration>
+						<generatedSourcesDirectory>${project.basedir}/target/generated-sources/mapper</generatedSourcesDirectory>
 						<annotationProcessorPaths>
 							<path>
 								<groupId>org.mapstruct</groupId>
@@ -170,6 +171,7 @@
 							</path>
 							<!-- other annotation processors -->
 						</annotationProcessorPaths>
+						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
 				<plugin>

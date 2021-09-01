@@ -12,9 +12,9 @@ import com.dunaevi.service.FamilyIncomeService;
 @Service
 public class FamilyIncomeServiceImpl implements FamilyIncomeService {
 
-    @Autowired
-    private FamilyIncomeDao familyIncomeDao;
-    
+	@Autowired
+	private FamilyIncomeDao familyIncomeDao;
+
 	@Override
 	public List<FamilyIncome> getFamilyIncome() {
 		return familyIncomeDao.getFamilyIncome();
@@ -22,21 +22,18 @@ public class FamilyIncomeServiceImpl implements FamilyIncomeService {
 
 	@Override
 	public void saveFamilyIncome(FamilyIncome familyIncome) {
-		// TODO Auto-generated method stub
+		familyIncomeDao.saveFamilyIncome(familyIncome);
 
 	}
 
 	@Override
 	public FamilyIncome getFamilyIncome(int id) {
-		// TODO Auto-generated method stub
-		FamilyIncome fi = new FamilyIncome();
-		fi.setIncome(1000000);
-		return fi;
+		return familyIncomeDao.getFamilyIncome(id);
 	}
 
 	@Override
 	public void deleteFamilyIncome(int id) {
-		// TODO Auto-generated method stub
+		familyIncomeDao.deleteFamilyIncome(id);
 
 	}
 

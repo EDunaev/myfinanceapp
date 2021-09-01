@@ -7,11 +7,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dunaevi.dao.OutputItemDao;
 import com.dunaevi.entity.OutputItem;
 
 @Repository
+@Transactional
 public class OutputItemDaoImpl implements OutputItemDao {
 
     @Autowired

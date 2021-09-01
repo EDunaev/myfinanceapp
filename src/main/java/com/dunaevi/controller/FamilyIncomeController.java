@@ -35,5 +35,17 @@ public class FamilyIncomeController {
                 .map(entity -> familyIncomeMapper.mapEntityToTo(entity))
                 .collect(Collectors.toList());
         return result;
+        
+//        List<FamilyIncomeTo> result = new ArrayList<FamilyIncomeTo>();
+//        list.forEach(income -> {
+//    		FamilyIncomeTo to = new FamilyIncomeTo();
+//    		FamilyMemberTo memberTo = new FamilyMemberTo();
+//    		to.setId(income.getId());
+//    		to.setIncome(income.getIncome());
+//    		memberTo.setId(income.getFamilyMember().getId());
+//    		memberTo.setName(income.getFamilyMember().getName());
+//    		to.setFamilyMember(memberTo);
+//    		result.add(to);
+//    	});
     }
 }

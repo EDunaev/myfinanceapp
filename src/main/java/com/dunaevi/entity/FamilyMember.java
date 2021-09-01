@@ -32,7 +32,6 @@ public class FamilyMember {
 	}
 
 	public FamilyMember(int id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}
@@ -62,6 +61,8 @@ public class FamilyMember {
 
 		this.familyIncomes = familyIncomes;
 	}
+	
+	
 
 	public void add(FamilyIncome familyIncome) {
 

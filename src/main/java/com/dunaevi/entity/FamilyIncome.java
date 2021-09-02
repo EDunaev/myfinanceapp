@@ -16,10 +16,10 @@ public class FamilyIncome {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	private Integer id;
 	
 	@Column(name="income")
-	private int income;
+	private Integer income;
 	
 	@ManyToOne
 	@JoinColumn(name="family_member_id")
@@ -29,19 +29,19 @@ public class FamilyIncome {
 		
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getIncome() {
+	public Integer getIncome() {
 		return income;
 	}
 
-	public void setIncome(int income) {
+	public void setIncome(Integer income) {
 		this.income = income;
 	}
 

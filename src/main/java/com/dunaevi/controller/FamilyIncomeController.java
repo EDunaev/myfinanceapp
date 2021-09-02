@@ -1,8 +1,6 @@
 package com.dunaevi.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dunaevi.controller.to.FamilyIncomeTo;
-import com.dunaevi.entity.FamilyIncome;
-import com.dunaevi.mapper.FamilyIncomeMapper;
 import com.dunaevi.service.FamilyIncomeService;
 
 @RestController
@@ -24,36 +20,30 @@ public class FamilyIncomeController {
 	@Autowired
 	private FamilyIncomeService familyIncomeService;
 
-	@Autowired
-	private FamilyIncomeMapper familyIncomeMapper;
-
 	@GetMapping("/income")
 	public List<FamilyIncomeTo> listIncomes() {
 
-		List<FamilyIncome> list = familyIncomeService.getFamilyIncome();
-		List<FamilyIncomeTo> result = list.stream().map(entity -> familyIncomeMapper.mapEntityToTo(entity))
-				.collect(Collectors.toList());
-		return result;
+		return familyIncomeService.getFamilyIncome();
 
 	}
 
 	@GetMapping("/income/{id}")
 	public FamilyIncomeTo findIncome(@PathVariable(value = "id") int incomeId) {
 
-		FamilyIncomeTo result = familyIncomeMapper.mapEntityToTo(familyIncomeService.getFamilyIncome(incomeId));
-		return result;
+		return familyIncomeService.getFamilyIncome(incomeId);
 
 	}
 
 	@PostMapping("/income")
 	public String saveCustomer(@Valid @RequestBody FamilyIncomeTo incomeTo) {
 
-		return incomeTo.getFamilyMember().getName();
+		return familyIncomeService.saveFamilyIncome(incomeTo).getFamilyMember().getName();
 	}
 
 	@DeleteMapping("/income/{id}")
 	public boolean deleteCustomer(@PathVariable(value = "id") int incomeId) {
 
-		return incomeId == 1;
+	    familyIncomeService.deleteFamilyIncome(incomeId);
+		return true;
 	}
 }

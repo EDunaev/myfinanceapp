@@ -19,7 +19,7 @@ public class FamilyMember {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private Integer id;
 
 	@Column(name = "name")
 	private String name;
@@ -31,7 +31,7 @@ public class FamilyMember {
 
 	}
 
-	public FamilyMember(int id, String name) {
+	public FamilyMember(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -40,7 +40,7 @@ public class FamilyMember {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

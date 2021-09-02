@@ -8,7 +8,7 @@ import com.dunaevi.entity.FamilyIncome;
 @Mapper(componentModel = "spring")
 public interface FamilyIncomeMapper {
 
-    
-    FamilyIncomeTo mapEntityToTo(
-            FamilyIncome source);
+    FamilyIncomeTo mapEntityToTo(FamilyIncome source);
+
+    FamilyIncome mapToToEntity(FamilyIncomeTo source);
 }

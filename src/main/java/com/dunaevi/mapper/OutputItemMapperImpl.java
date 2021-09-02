@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-09-01T20:03:54+0200",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_212 (Oracle Corporation)"
+    date = "2021-09-02T09:56:05+0200",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 13.0.2 (Oracle Corporation)"
 )
 @Component
 public class OutputItemMapperImpl implements OutputItemMapper {
@@ -33,6 +33,24 @@ public class OutputItemMapperImpl implements OutputItemMapper {
         return outputItemTo;
     }
 
+    @Override
+    public OutputItem mapToToEntity(OutputItemTo source) {
+        if ( source == null ) {
+            return null;
+        }
+
+        OutputItem outputItem = new OutputItem();
+
+        outputItem.setId( source.getId() );
+        outputItem.setName( source.getName() );
+        outputItem.setEntryPrice( source.getEntryPrice() );
+        outputItem.setItemComment( source.getItemComment() );
+        outputItem.setItemType( source.getItemType() );
+        outputItem.setMonthEntryId( monthEntryToToMonthEntry( source.getMonthEntryId() ) );
+
+        return outputItem;
+    }
+
     protected MonthEntryTo monthEntryToMonthEntryTo(MonthEntry monthEntry) {
         if ( monthEntry == null ) {
             return null;
@@ -48,5 +66,22 @@ public class OutputItemMapperImpl implements OutputItemMapper {
         monthEntryTo.setActualState( monthEntry.getActualState() );
 
         return monthEntryTo;
+    }
+
+    protected MonthEntry monthEntryToToMonthEntry(MonthEntryTo monthEntryTo) {
+        if ( monthEntryTo == null ) {
+            return null;
+        }
+
+        MonthEntry monthEntry = new MonthEntry();
+
+        monthEntry.setId( monthEntryTo.getId() );
+        monthEntry.setEntryYear( monthEntryTo.getEntryYear() );
+        monthEntry.setEntryMonth( monthEntryTo.getEntryMonth() );
+        monthEntry.setExpectedState( monthEntryTo.getExpectedState() );
+        monthEntry.setRealState( monthEntryTo.getRealState() );
+        monthEntry.setActualState( monthEntryTo.getActualState() );
+
+        return monthEntry;
     }
 }

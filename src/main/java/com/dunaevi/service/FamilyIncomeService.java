@@ -2,16 +2,16 @@ package com.dunaevi.service;
 
 import java.util.List;
 
-import com.dunaevi.entity.FamilyIncome;
+import com.dunaevi.controller.to.FamilyIncomeTo;
 
 
 public interface FamilyIncomeService {
 
-	public List<FamilyIncome> getFamilyIncome();
+	public List<FamilyIncomeTo> getFamilyIncome();
 	
-	public void saveFamilyIncome(FamilyIncome familyIncome);
+	public FamilyIncomeTo saveFamilyIncome(FamilyIncomeTo familyIncome);
 
-	FamilyIncome getFamilyIncome(int id);
+	FamilyIncomeTo getFamilyIncome(int id);
 
 	void deleteFamilyIncome(int id);
 	

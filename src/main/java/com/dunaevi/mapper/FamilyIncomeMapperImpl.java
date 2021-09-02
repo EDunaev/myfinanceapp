@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-09-01T20:03:54+0200",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_212 (Oracle Corporation)"
+    date = "2021-09-02T09:56:05+0200",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 13.0.2 (Oracle Corporation)"
 )
 @Component
 public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
@@ -30,6 +30,21 @@ public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
         return familyIncomeTo;
     }
 
+    @Override
+    public FamilyIncome mapToToEntity(FamilyIncomeTo source) {
+        if ( source == null ) {
+            return null;
+        }
+
+        FamilyIncome familyIncome = new FamilyIncome();
+
+        familyIncome.setId( source.getId() );
+        familyIncome.setIncome( source.getIncome() );
+        familyIncome.setFamilyMember( familyMemberToToFamilyMember( source.getFamilyMember() ) );
+
+        return familyIncome;
+    }
+
     protected FamilyMemberTo familyMemberToFamilyMemberTo(FamilyMember familyMember) {
         if ( familyMember == null ) {
             return null;
@@ -41,5 +56,18 @@ public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
         familyMemberTo.setName( familyMember.getName() );
 
         return familyMemberTo;
+    }
+
+    protected FamilyMember familyMemberToToFamilyMember(FamilyMemberTo familyMemberTo) {
+        if ( familyMemberTo == null ) {
+            return null;
+        }
+
+        FamilyMember familyMember = new FamilyMember();
+
+        familyMember.setId( familyMemberTo.getId() );
+        familyMember.setName( familyMemberTo.getName() );
+
+        return familyMember;
     }
 }

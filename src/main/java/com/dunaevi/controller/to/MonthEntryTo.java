@@ -2,67 +2,67 @@ package com.dunaevi.controller.to;
 
 public class MonthEntryTo {
 
-	private int id;
+	private Integer id;
 
-	private int entryYear;
+	private Integer entryYear;
 
-	private int entryMonth;
+	private Integer entryMonth;
 
-	private int expectedState;
+	private Integer expectedState;
 
-	private int realState;
+	private Integer realState;
 
-	private int actualState;
+	private Integer actualState;
 
 	public MonthEntryTo() {
 
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getEntryYear() {
+	public Integer getEntryYear() {
 		return entryYear;
 	}
 
-	public void setEntryYear(int entryYear) {
+	public void setEntryYear(Integer entryYear) {
 		this.entryYear = entryYear;
 	}
 
-	public int getEntryMonth() {
+	public Integer getEntryMonth() {
 		return entryMonth;
 	}
 
-	public void setEntryMonth(int entryMonth) {
+	public void setEntryMonth(Integer entryMonth) {
 		this.entryMonth = entryMonth;
 	}
 
-	public int getExpectedState() {
+	public Integer getExpectedState() {
 		return expectedState;
 	}
 
-	public void setExpectedState(int expectedState) {
+	public void setExpectedState(Integer expectedState) {
 		this.expectedState = expectedState;
 	}
 
-	public int getRealState() {
+	public Integer getRealState() {
 		return realState;
 	}
 
-	public void setRealState(int realState) {
+	public void setRealState(Integer realState) {
 		this.realState = realState;
 	}
 
-	public int getActualState() {
+	public Integer getActualState() {
 		return actualState;
 	}
 
-	public void setActualState(int actualState) {
+	public void setActualState(Integer actualState) {
 		this.actualState = actualState;
 	}
 

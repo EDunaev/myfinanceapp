@@ -16,13 +16,13 @@ public class OutputItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private Integer id;
 
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "entry_price")
-	private int entryPrice;
+	private Integer entryPrice;
 
 	@Column(name = "item_comment")
 	private String itemComment;
@@ -38,11 +38,11 @@ public class OutputItem {
 
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -54,11 +54,11 @@ public class OutputItem {
 		this.name = name;
 	}
 
-	public int getEntryPrice() {
+	public Integer getEntryPrice() {
 		return entryPrice;
 	}
 
-	public void setEntryPrice(int entryPrice) {
+	public void setEntryPrice(Integer entryPrice) {
 		this.entryPrice = entryPrice;
 	}
 

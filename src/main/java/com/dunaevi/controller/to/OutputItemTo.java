@@ -2,11 +2,11 @@ package com.dunaevi.controller.to;
 
 public class OutputItemTo {
 
-	private int id;
+	private Integer id;
 
 	private String name;
 
-	private int entryPrice;
+	private Integer entryPrice;
 
 	private String itemComment;
 
@@ -18,11 +18,11 @@ public class OutputItemTo {
 
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -34,11 +34,11 @@ public class OutputItemTo {
 		this.name = name;
 	}
 
-	public int getEntryPrice() {
+	public Integer getEntryPrice() {
 		return entryPrice;
 	}
 
-	public void setEntryPrice(int entryPrice) {
+	public void setEntryPrice(Integer entryPrice) {
 		this.entryPrice = entryPrice;
 	}
 

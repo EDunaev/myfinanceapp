@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dunaevi.controller.to.MonthEntryTo;
 import com.dunaevi.dao.MonthEntryDao;
@@ -11,6 +12,7 @@ import com.dunaevi.entity.MonthEntry;
 import com.dunaevi.mapper.MonthEntryMapper;
 import com.dunaevi.service.MonthEntryService;
 
+@Service
 public class MonthEntryServiceImpl implements MonthEntryService {
 
     @Autowired

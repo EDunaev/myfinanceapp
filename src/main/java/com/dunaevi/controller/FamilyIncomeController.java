@@ -35,13 +35,13 @@ public class FamilyIncomeController {
 	}
 
 	@PostMapping("/income")
-	public String saveCustomer(@Valid @RequestBody FamilyIncomeTo incomeTo) {
+	public String saveIncome(@Valid @RequestBody FamilyIncomeTo incomeTo) {
 
 		return familyIncomeService.saveFamilyIncome(incomeTo).getFamilyMember().getName();
 	}
 
 	@DeleteMapping("/income/{id}")
-	public boolean deleteCustomer(@PathVariable(value = "id") int incomeId) {
+	public boolean deleteIncome(@PathVariable(value = "id") int incomeId) {
 
 	    familyIncomeService.deleteFamilyIncome(incomeId);
 		return true;

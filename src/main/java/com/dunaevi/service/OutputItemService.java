@@ -2,16 +2,16 @@ package com.dunaevi.service;
 
 import java.util.List;
 
-import com.dunaevi.entity.OutputItem;
+import com.dunaevi.controller.to.OutputItemTo;
 
 
 public interface OutputItemService {
 
-	public List<OutputItem> getOutputItem();
+	public List<OutputItemTo> getOutputItem();
 	
-	public void saveOutputItem(OutputItem familyIncome);
+	public void saveOutputItem(OutputItemTo outputItemTo);
 
-	OutputItem getOutputItemOutputItem(int id);
+	OutputItemTo getOutputItemOutputItem(int id);
 
 	void deleteOutputItem(int id);
 	

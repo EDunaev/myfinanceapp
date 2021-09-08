@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,38 +20,40 @@ import com.dunaevi.service.MonthEntryService;
 @RestController
 public class MonthEntryController {
 
-    @Autowired
-    private MonthEntryService monthEntryService;
+	@Autowired
+	private MonthEntryService monthEntryService;
 
-    @GetMapping("/month-entry")
-    public List<MonthEntryTo> monthEntryTos(Model theModel) {
+	@GetMapping("/month-entry")
+	public List<MonthEntryTo> monthEntryTos(Model theModel) {
 
-        return monthEntryService.getMonthEntry();
+		return monthEntryService.getMonthEntry();
 
-    }
+	}
 
-    @GetMapping("/month-entry/{id}")
-    public MonthEntryTo findMonthEntry(@PathVariable(value = "id")
-    int outputItemId) {
+	@GetMapping("/month-entry/{id}")
+	public MonthEntryTo findMonthEntry(@PathVariable(value = "id") int outputItemId) {
 
-        return monthEntryService.getMonthEntry(outputItemId);
+		return monthEntryService.getMonthEntry(outputItemId);
 
-    }
+	}
 
-    @PostMapping("/month-entry")
-    public void saveMonthEntry(@Valid
-    @RequestBody
-    MonthEntryTo outputItemTo) {
+	@PostMapping("/month-entry")
+	public void saveMonthEntry(@Valid @RequestBody MonthEntryTo outputItemTo) {
 
-        monthEntryService.saveMonthEntry(outputItemTo);
+		monthEntryService.saveMonthEntry(outputItemTo);
 
-    }
+	}
 
-    @DeleteMapping("/month-entry/{id}")
-    public boolean deleteMonthEntry(@PathVariable(value = "id")
-    int outputItemId) {
+	@PatchMapping("/month-entry")
+	public void updateMonthEntry(@Valid @RequestBody MonthEntryTo outputItemTo) {
+		monthEntryService.saveMonthEntry(outputItemTo);
 
-        monthEntryService.deleteMonthEntry(outputItemId);
-        return true;
-    }
+	}
+
+	@DeleteMapping("/month-entry/{id}")
+	public boolean deleteMonthEntry(@PathVariable(value = "id") int outputItemId) {
+
+		monthEntryService.deleteMonthEntry(outputItemId);
+		return true;
+	}
 }

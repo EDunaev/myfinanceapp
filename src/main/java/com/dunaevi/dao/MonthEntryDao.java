@@ -6,9 +6,9 @@ import com.dunaevi.entity.MonthEntry;
 
 public interface MonthEntryDao {
 
-    public List<MonthEntry> getMontEntries();
+    List<MonthEntry> getMontEntries();
 
-    public void saveMonthEntry(MonthEntry monthEntry);
+    void saveMonthEntry(MonthEntry monthEntry);
 
     MonthEntry getMonthEntry(int id);
 

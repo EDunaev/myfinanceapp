@@ -39,6 +39,9 @@ public class MonthEntry {
 	@OneToMany(mappedBy = "monthEntryId", fetch = FetchType.LAZY)
 	private List<OutputItem> outputItems;
 
+	@OneToMany(mappedBy = "monthEntry", fetch = FetchType.LAZY)
+	private List<FamilyIncome> familyIncomes;
+
 	public MonthEntry() {
 
 	}
@@ -99,7 +102,15 @@ public class MonthEntry {
 		this.outputItems = outputItems;
 	}
 
-	public void add(OutputItem outputItem) {
+	public List<FamilyIncome> getFamilyIncomes() {
+		return familyIncomes;
+	}
+
+	public void setFamilyIncomes(List<FamilyIncome> familyIncomes) {
+		this.familyIncomes = familyIncomes;
+	}
+
+	public void addOutputItem(OutputItem outputItem) {
 
 		if (outputItems == null) {
 			outputItems = new ArrayList<>();
@@ -108,5 +119,16 @@ public class MonthEntry {
 		outputItems.add(outputItem);
 
 		outputItem.setMonthEntryId(this);
+	}
+
+	public void add(FamilyIncome familyIncome) {
+
+		if (familyIncomes == null) {
+			familyIncomes = new ArrayList<>();
+		}
+
+		familyIncomes.add(familyIncome);
+
+		familyIncome.setMonthEntry(this);
 	}
 }

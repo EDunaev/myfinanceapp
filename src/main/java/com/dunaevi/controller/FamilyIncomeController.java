@@ -28,6 +28,13 @@ public class FamilyIncomeController {
 
 	}
 
+	@GetMapping("/incomes-by-month/{id}")
+	public List<FamilyIncomeTo> findIncomesByMonthId(@PathVariable(value = "id") Integer monthId) {
+
+		return familyIncomeService.findIncomeByMonthId(monthId);
+
+	}
+
 	@GetMapping("/income/{id}")
 	public FamilyIncomeTo findIncome(@PathVariable(value = "id") int incomeId) {
 
@@ -41,7 +48,7 @@ public class FamilyIncomeController {
 		return familyIncomeService.saveFamilyIncome(incomeTo).getFamilyMember().getName();
 	}
 
-	@PatchMapping("/income")
+	@PatchMapping("/income/{id}")
 	public void updateIncome(@Valid @RequestBody FamilyIncomeTo incomeTo) {
 
 		familyIncomeService.saveFamilyIncome(incomeTo);

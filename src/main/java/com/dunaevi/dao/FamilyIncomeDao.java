@@ -6,9 +6,11 @@ import com.dunaevi.entity.FamilyIncome;
 
 public interface FamilyIncomeDao {
 
-    public List<FamilyIncome> getFamilyIncome();
+    List<FamilyIncome> getFamilyIncome();
     
-    public void saveFamilyIncome(FamilyIncome familyIncome);
+    List<FamilyIncome> getIncomeByMonthId(Integer Id);
+    
+    void saveFamilyIncome(FamilyIncome familyIncome);
 
     FamilyIncome getFamilyIncome(int id);
 

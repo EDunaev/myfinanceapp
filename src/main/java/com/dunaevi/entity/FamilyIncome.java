@@ -25,6 +25,10 @@ public class FamilyIncome {
 	@JoinColumn(name="family_member_id")
 	private FamilyMember familyMember;
 	
+	@ManyToOne
+	@JoinColumn(name="month_id")
+	private MonthEntry monthEntry;
+	
 	public FamilyIncome() {
 		
 	}
@@ -54,6 +58,14 @@ public class FamilyIncome {
     
         this.familyMember = familyMember;
     }
+
+	public MonthEntry getMonthEntry() {
+		return monthEntry;
+	}
+
+	public void setMonthEntry(MonthEntry monthEntry) {
+		this.monthEntry = monthEntry;
+	}
 
 	
 	

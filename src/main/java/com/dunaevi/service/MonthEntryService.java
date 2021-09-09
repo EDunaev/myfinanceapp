@@ -6,9 +6,9 @@ import com.dunaevi.controller.to.MonthEntryTo;
 
 public interface MonthEntryService {
 
-    public List<MonthEntryTo> getMonthEntry();
+    List<MonthEntryTo> getMonthEntry();
 
-    public void saveMonthEntry(MonthEntryTo monthEntryTo);
+    void saveMonthEntry(MonthEntryTo monthEntryTo);
 
     MonthEntryTo getMonthEntry(int id);
 

@@ -16,45 +16,52 @@ import com.dunaevi.entity.OutputItem;
 @Transactional
 public class OutputItemDaoImpl implements OutputItemDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
-    
-    @Override
-    public List<OutputItem> getOutputItem() {
+	@Autowired
+	private SessionFactory sessionFactory;
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        Query<OutputItem> query = currentSession
-                .createQuery("from OutputItem", OutputItem.class);
-        List<OutputItem> result = query.getResultList();
-        return result;
-    }
+	@Override
+	public List<OutputItem> getOutputItem() {
 
-    @Override
-    public void saveOutputItem(OutputItem outputItem) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<OutputItem> query = currentSession.createQuery("from OutputItem", OutputItem.class);
+		List<OutputItem> result = query.getResultList();
+		return result;
+	}
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(outputItem);
+	@Override
+	public void saveOutputItem(OutputItem outputItem) {
 
-    }
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(outputItem);
 
-    @Override
-    public OutputItem getOutputItem(int id) {
+	}
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        OutputItem outputItem = currentSession.get(OutputItem.class, id);
-        return outputItem;
-    }
+	@Override
+	public OutputItem getOutputItem(int id) {
 
-    @Override
-    public void deleteOutputItem(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		OutputItem outputItem = currentSession.get(OutputItem.class, id);
+		return outputItem;
+	}
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        Query query = currentSession
-                .createQuery("delete from OutputItem where id=:theId");
-        query.setParameter("theId", id);
+	@Override
+	public void deleteOutputItem(int id) {
 
-        query.executeUpdate();
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query query = currentSession.createQuery("delete from OutputItem where id=:theId");
+		query.setParameter("theId", id);
 
-    }
+		query.executeUpdate();
+
+	}
+
+	@Override
+	public List<OutputItem> findOutputItemByMonthId(Integer id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<OutputItem> query = currentSession.createQuery("from OutputItem oi where oi.monthEntryId = " + (id == 0 ? null : id),
+				OutputItem.class);
+		List<OutputItem> result = query.getResultList();
+		return result;
+	}
 
 }

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-09-02T16:47:46+0200",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 13.0.2 (Oracle Corporation)"
+    date = "2021-09-08T21:03:33+0200",
+    comments = "version: 1.4.2.Final, compiler: Eclipse JDT (IDE) 1.3.1300.v20210419-1022, environment: Java 11.0.8 (Oracle Corporation)"
 )
 @Component
 public class OutputItemMapperImpl implements OutputItemMapper {

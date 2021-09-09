@@ -2,15 +2,17 @@ package com.dunaevi.mapper;
 
 import com.dunaevi.controller.to.FamilyIncomeTo;
 import com.dunaevi.controller.to.FamilyMemberTo;
+import com.dunaevi.controller.to.MonthEntryTo;
 import com.dunaevi.entity.FamilyIncome;
 import com.dunaevi.entity.FamilyMember;
+import com.dunaevi.entity.MonthEntry;
 import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-09-02T16:47:46+0200",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 13.0.2 (Oracle Corporation)"
+    date = "2021-09-08T21:03:16+0200",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_212 (Oracle Corporation)"
 )
 @Component
 public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
@@ -26,6 +28,7 @@ public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
         familyIncomeTo.setId( source.getId() );
         familyIncomeTo.setIncome( source.getIncome() );
         familyIncomeTo.setFamilyMember( familyMemberToFamilyMemberTo( source.getFamilyMember() ) );
+        familyIncomeTo.setMonthEntry( monthEntryToMonthEntryTo( source.getMonthEntry() ) );
 
         return familyIncomeTo;
     }
@@ -41,6 +44,7 @@ public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
         familyIncome.setId( source.getId() );
         familyIncome.setIncome( source.getIncome() );
         familyIncome.setFamilyMember( familyMemberToToFamilyMember( source.getFamilyMember() ) );
+        familyIncome.setMonthEntry( monthEntryToToMonthEntry( source.getMonthEntry() ) );
 
         return familyIncome;
     }
@@ -58,6 +62,23 @@ public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
         return familyMemberTo;
     }
 
+    protected MonthEntryTo monthEntryToMonthEntryTo(MonthEntry monthEntry) {
+        if ( monthEntry == null ) {
+            return null;
+        }
+
+        MonthEntryTo monthEntryTo = new MonthEntryTo();
+
+        monthEntryTo.setId( monthEntry.getId() );
+        monthEntryTo.setEntryYear( monthEntry.getEntryYear() );
+        monthEntryTo.setEntryMonth( monthEntry.getEntryMonth() );
+        monthEntryTo.setExpectedState( monthEntry.getExpectedState() );
+        monthEntryTo.setRealState( monthEntry.getRealState() );
+        monthEntryTo.setActualState( monthEntry.getActualState() );
+
+        return monthEntryTo;
+    }
+
     protected FamilyMember familyMemberToToFamilyMember(FamilyMemberTo familyMemberTo) {
         if ( familyMemberTo == null ) {
             return null;
@@ -69,5 +90,22 @@ public class FamilyIncomeMapperImpl implements FamilyIncomeMapper {
         familyMember.setName( familyMemberTo.getName() );
 
         return familyMember;
+    }
+
+    protected MonthEntry monthEntryToToMonthEntry(MonthEntryTo monthEntryTo) {
+        if ( monthEntryTo == null ) {
+            return null;
+        }
+
+        MonthEntry monthEntry = new MonthEntry();
+
+        monthEntry.setId( monthEntryTo.getId() );
+        monthEntry.setEntryYear( monthEntryTo.getEntryYear() );
+        monthEntry.setEntryMonth( monthEntryTo.getEntryMonth() );
+        monthEntry.setExpectedState( monthEntryTo.getExpectedState() );
+        monthEntry.setRealState( monthEntryTo.getRealState() );
+        monthEntry.setActualState( monthEntryTo.getActualState() );
+
+        return monthEntry;
     }
 }

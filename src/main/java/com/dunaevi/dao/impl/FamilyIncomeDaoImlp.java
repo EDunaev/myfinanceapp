@@ -16,45 +16,53 @@ import com.dunaevi.entity.FamilyIncome;
 @Transactional
 public class FamilyIncomeDaoImlp implements FamilyIncomeDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+	@Autowired
+	private SessionFactory sessionFactory;
 
-    @Override
+	@Override
     public List<FamilyIncome> getFamilyIncome() {
 
         Session currentSession = sessionFactory.getCurrentSession();
         Query<FamilyIncome> query = currentSession
                 .createQuery("from FamilyIncome", FamilyIncome.class);
-        List<FamilyIncome> result = query.getResultList();
-        return result;
+		List<FamilyIncome> result = query.getResultList();
+		return result;
     }
 
-    @Override
-    public void saveFamilyIncome(FamilyIncome familyIncome) {
+	@Override
+	public void saveFamilyIncome(FamilyIncome familyIncome) {
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(familyIncome);
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(familyIncome);
 
-    }
+	}
 
-    @Override
-    public FamilyIncome getFamilyIncome(int id) {
+	@Override
+	public FamilyIncome getFamilyIncome(int id) {
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        FamilyIncome familyIncome = currentSession.get(FamilyIncome.class, id);
-        return familyIncome;
-    }
+		Session currentSession = sessionFactory.getCurrentSession();
+		FamilyIncome familyIncome = currentSession.get(FamilyIncome.class, id);
+		return familyIncome;
+	}
 
-    @Override
-    public void deleteFamilyIncome(int id) {
+	@Override
+	public void deleteFamilyIncome(int id) {
 
-        Session currentSession = sessionFactory.getCurrentSession();
-        Query query = currentSession
-                .createQuery("delete from FamilyIncome where id=:theId");
-        query.setParameter("theId", id);
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query query = currentSession.createQuery("delete from FamilyIncome where id=:theId");
+		query.setParameter("theId", id);
 
-        query.executeUpdate();
+		query.executeUpdate();
 
-    }
+	}
+
+	@Override
+	public List<FamilyIncome> getIncomeByMonthId(Integer id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<FamilyIncome> query = currentSession.createQuery("from FamilyIncome fi where fi.monthEntry = " + id,
+				FamilyIncome.class);
+		List<FamilyIncome> result = query.getResultList();
+		return result;
+	}
 
 }

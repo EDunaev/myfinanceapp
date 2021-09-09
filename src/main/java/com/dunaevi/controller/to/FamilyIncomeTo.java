@@ -7,6 +7,8 @@ public class FamilyIncomeTo {
 	private Integer income;
 	
 	private FamilyMemberTo familyMember;
+	
+	private MonthEntryTo monthEntry;
 
 	public Integer getId() {
 		return id;
@@ -30,6 +32,14 @@ public class FamilyIncomeTo {
 
 	public void setFamilyMember(FamilyMemberTo familyMember) {
 		this.familyMember = familyMember;
+	}
+
+	public MonthEntryTo getMonthEntry() {
+		return monthEntry;
+	}
+
+	public void setMonthEntry(MonthEntryTo monthEntry) {
+		this.monthEntry = monthEntry;
 	}
 	
 	

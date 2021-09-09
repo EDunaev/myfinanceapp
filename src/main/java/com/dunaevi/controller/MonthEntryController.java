@@ -44,7 +44,7 @@ public class MonthEntryController {
 
 	}
 
-	@PatchMapping("/month-entry")
+	@PatchMapping("/month-entry/{id}")
 	public void updateMonthEntry(@Valid @RequestBody MonthEntryTo outputItemTo) {
 		monthEntryService.saveMonthEntry(outputItemTo);
 

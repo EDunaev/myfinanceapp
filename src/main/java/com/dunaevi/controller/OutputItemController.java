@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dunaevi.controller.to.FamilyIncomeTo;
 import com.dunaevi.controller.to.OutputItemTo;
 import com.dunaevi.service.OutputItemService;
 
@@ -27,6 +28,13 @@ public class OutputItemController {
 	public List<OutputItemTo> outputItemTos(Model theModel) {
 
 		return outpuItemService.getOutputItem();
+
+	}
+
+	@GetMapping("/outputs-by-month/{id}")
+	public List<OutputItemTo> findIncomesByMonthId(@PathVariable(value = "id") Integer monthId) {
+
+		return outpuItemService.findOutputItemByMonthId(monthId);
 
 	}
 
@@ -44,7 +52,7 @@ public class OutputItemController {
 
 	}
 
-	@PatchMapping("/output")
+	@PatchMapping("/output/{id}")
 	public void updateOutputItem(@Valid @RequestBody OutputItemTo outputItemTo) {
 
 		outpuItemService.saveOutputItem(outputItemTo);

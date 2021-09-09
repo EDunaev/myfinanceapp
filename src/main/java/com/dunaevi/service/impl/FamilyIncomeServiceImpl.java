@@ -51,4 +51,12 @@ public class FamilyIncomeServiceImpl implements FamilyIncomeService {
 
     }
 
+	@Override
+	public List<FamilyIncomeTo> findIncomeByMonthId(Integer id) {
+		List<FamilyIncome> list = familyIncomeDao.getIncomeByMonthId(id);
+        return list.stream()
+                .map(entity -> familyIncomeMapper.mapEntityToTo(entity))
+                .collect(Collectors.toList());
+	}
+
 }

@@ -7,9 +7,11 @@ import com.dunaevi.controller.to.OutputItemTo;
 
 public interface OutputItemService {
 
-	public List<OutputItemTo> getOutputItem();
+	List<OutputItemTo> getOutputItem();
 	
-	public void saveOutputItem(OutputItemTo outputItemTo);
+	List<OutputItemTo> findOutputItemByMonthId(Integer id);
+	
+	void saveOutputItem(OutputItemTo outputItemTo);
 
 	OutputItemTo getOutputItemOutputItem(int id);
 

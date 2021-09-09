@@ -15,40 +15,44 @@ import com.dunaevi.service.OutputItemService;
 @Service
 public class OutputItemServiceImpl implements OutputItemService {
 
-    @Autowired
-    private OutputItemDao outputItemDao;
+	@Autowired
+	private OutputItemDao outputItemDao;
 
-    @Autowired
-    private OutputItemMapper outputItemMapper;
+	@Autowired
+	private OutputItemMapper outputItemMapper;
 
-    @Override
-    public List<OutputItemTo> getOutputItem() {
+	@Override
+	public List<OutputItemTo> getOutputItem() {
 
-        List<OutputItem> list = outputItemDao.getOutputItem();
-        return list.stream()
-                .map(entity -> outputItemMapper.mapEntityToTo(entity))
-                .collect(Collectors.toList());
-    }
+		List<OutputItem> list = outputItemDao.getOutputItem();
+		return list.stream().map(entity -> outputItemMapper.mapEntityToTo(entity)).collect(Collectors.toList());
+	}
 
-    @Override
-    public void saveOutputItem(OutputItemTo familyIncome) {
+	@Override
+	public void saveOutputItem(OutputItemTo familyIncome) {
 
-        OutputItem oi = outputItemMapper.mapToToEntity(familyIncome);
-        outputItemDao.saveOutputItem(oi);
+		OutputItem oi = outputItemMapper.mapToToEntity(familyIncome);
+		outputItemDao.saveOutputItem(oi);
 
-    }
+	}
 
-    @Override
-    public OutputItemTo getOutputItemOutputItem(int id) {
+	@Override
+	public OutputItemTo getOutputItemOutputItem(int id) {
 
-        return outputItemMapper.mapEntityToTo(outputItemDao.getOutputItem(id));
-    }
+		return outputItemMapper.mapEntityToTo(outputItemDao.getOutputItem(id));
+	}
 
-    @Override
-    public void deleteOutputItem(int id) {
+	@Override
+	public void deleteOutputItem(int id) {
 
-        outputItemDao.deleteOutputItem(id);
+		outputItemDao.deleteOutputItem(id);
 
-    }
+	}
+
+	@Override
+	public List<OutputItemTo> findOutputItemByMonthId(Integer id) {
+		List<OutputItem> list = outputItemDao.findOutputItemByMonthId(id);
+		return list.stream().map(entity -> outputItemMapper.mapEntityToTo(entity)).collect(Collectors.toList());
+	}
 
 }

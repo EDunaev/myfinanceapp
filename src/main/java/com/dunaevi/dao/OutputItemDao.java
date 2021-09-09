@@ -6,11 +6,13 @@ import com.dunaevi.entity.OutputItem;
 
 public interface OutputItemDao {
 
-    public List<OutputItem> getOutputItem();
+	List<OutputItem> getOutputItem();
 
-    public void saveOutputItem(OutputItem outputItem);
+	List<OutputItem> findOutputItemByMonthId(Integer id);
 
-    OutputItem getOutputItem(int id);
+	void saveOutputItem(OutputItem outputItem);
 
-    void deleteOutputItem(int id);
+	OutputItem getOutputItem(int id);
+
+	void deleteOutputItem(int id);
 }

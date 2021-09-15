@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dunaevi.controller.to.FamilyIncomeTo;
@@ -24,15 +25,15 @@ public class OutputItemController {
 	@Autowired
 	private OutputItemService outpuItemService;
 
-	@GetMapping("/output")
+	@GetMapping("/outputs")
 	public List<OutputItemTo> outputItemTos(Model theModel) {
 
 		return outpuItemService.getOutputItem();
 
 	}
 
-	@GetMapping("/outputs-by-month/{id}")
-	public List<OutputItemTo> findIncomesByMonthId(@PathVariable(value = "id") Integer monthId) {
+	@GetMapping("/output")
+	public List<OutputItemTo> findIncomesByMonthId(@RequestParam(value = "monthEntryId.id") Integer monthId) {
 
 		return outpuItemService.findOutputItemByMonthId(monthId);
 

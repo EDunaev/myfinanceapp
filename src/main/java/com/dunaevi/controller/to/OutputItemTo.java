@@ -11,6 +11,8 @@ public class OutputItemTo {
 	private String itemComment;
 
 	private String itemType;
+	
+	private Boolean isPaid;
 
 	private MonthEntryTo monthEntryId;
 
@@ -65,5 +67,15 @@ public class OutputItemTo {
 	public void setMonthEntryId(MonthEntryTo monthEntryId) {
 		this.monthEntryId = monthEntryId;
 	}
+
+    public Boolean getIsPaid() {
+    
+        return isPaid;
+    }
+
+    public void setIsPaid(Boolean isPaid) {
+    
+        this.isPaid = isPaid;
+    }
 
 }

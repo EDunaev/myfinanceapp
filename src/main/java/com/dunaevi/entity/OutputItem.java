@@ -29,6 +29,9 @@ public class OutputItem {
 
 	@Column(name = "item_type")
 	private String itemType;
+	
+	@Column(name = "is_paid")
+    private Boolean isPaid;
 
 	@ManyToOne
 	@JoinColumn(name = "month_entry_id")
@@ -85,5 +88,16 @@ public class OutputItem {
 	public void setMonthEntryId(MonthEntry monthEntryId) {
 		this.monthEntryId = monthEntryId;
 	}
+
+    public Boolean getIsPaid() {
+    
+        return isPaid;
+    }
+
+    public void setIsPaid(Boolean isPaid) {
+    
+        this.isPaid = isPaid;
+    }
+	
 
 }

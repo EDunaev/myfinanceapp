@@ -1,47 +1,65 @@
 package com.dunaevi.controller.to;
 
 public class FamilyIncomeTo {
-	
-	private Integer id;
-	
-	private Integer income;
-	
-	private FamilyMemberTo familyMember;
-	
-	private MonthEntryTo monthEntry;
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer id;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private Integer income;
 
-	public Integer getIncome() {
-		return income;
-	}
+    private Integer realIncome;
 
-	public void setIncome(Integer income) {
-		this.income = income;
-	}
+    private FamilyMemberTo familyMember;
 
-	public FamilyMemberTo getFamilyMember() {
-		return familyMember;
-	}
+    private MonthEntryTo monthEntry;
 
-	public void setFamilyMember(FamilyMemberTo familyMember) {
-		this.familyMember = familyMember;
-	}
+    public Integer getId() {
 
-	public MonthEntryTo getMonthEntry() {
-		return monthEntry;
-	}
+        return id;
+    }
 
-	public void setMonthEntry(MonthEntryTo monthEntry) {
-		this.monthEntry = monthEntry;
-	}
-	
-	
+    public void setId(Integer id) {
+
+        this.id = id;
+    }
+
+    public Integer getIncome() {
+
+        return income;
+    }
+
+    public void setIncome(Integer income) {
+
+        this.income = income;
+    }
+
+    public FamilyMemberTo getFamilyMember() {
+
+        return familyMember;
+    }
+
+    public void setFamilyMember(FamilyMemberTo familyMember) {
+
+        this.familyMember = familyMember;
+    }
+
+    public MonthEntryTo getMonthEntry() {
+
+        return monthEntry;
+    }
+
+    public void setMonthEntry(MonthEntryTo monthEntry) {
+
+        this.monthEntry = monthEntry;
+    }
+
+    public Integer getRealIncome() {
+
+        return realIncome;
+    }
+
+    public void setRealIncome(Integer realIncome) {
+
+        this.realIncome = realIncome;
+    }
 
 }

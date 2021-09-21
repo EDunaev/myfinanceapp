@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,48 +20,49 @@ import com.dunaevi.controller.to.FamilyIncomeTo;
 import com.dunaevi.controller.to.OutputItemTo;
 import com.dunaevi.service.OutputItemService;
 
+@CrossOrigin
 @RestController
 public class OutputItemController {
 
 	@Autowired
 	private OutputItemService outpuItemService;
 
-	@GetMapping("/outputs")
+	@GetMapping("/api/outputs")
 	public List<OutputItemTo> outputItemTos(Model theModel) {
 
 		return outpuItemService.getOutputItem();
 
 	}
 
-	@GetMapping("/output")
+	@GetMapping("/api/output")
 	public List<OutputItemTo> findIncomesByMonthId(@RequestParam(value = "monthEntryId.id") Integer monthId) {
 
 		return outpuItemService.findOutputItemByMonthId(monthId);
 
 	}
 
-	@GetMapping("/output/{id}")
+	@GetMapping("/api/output/{id}")
 	public OutputItemTo findOutputItem(@PathVariable(value = "id") int outputItemId) {
 
 		return outpuItemService.getOutputItemOutputItem(outputItemId);
 
 	}
 
-	@PostMapping("/output")
-	public void saveOutputItem(@Valid @RequestBody OutputItemTo outputItemTo) {
+	@PostMapping("/api/output")
+	public OutputItemTo saveOutputItem(@Valid @RequestBody OutputItemTo outputItemTo) {
 
-		outpuItemService.saveOutputItem(outputItemTo);
-
-	}
-
-	@PatchMapping("/output/{id}")
-	public void updateOutputItem(@Valid @RequestBody OutputItemTo outputItemTo) {
-
-		outpuItemService.saveOutputItem(outputItemTo);
+		return outpuItemService.saveOutputItem(outputItemTo);
 
 	}
 
-	@DeleteMapping("/output/{id}")
+	@PatchMapping("/api/output/{id}")
+	public OutputItemTo updateOutputItem(@Valid @RequestBody OutputItemTo outputItemTo) {
+
+		return outpuItemService.saveOutputItem(outputItemTo);
+
+	}
+
+	@DeleteMapping("/api/output/{id}")
 	public boolean deleteOutputItem(@PathVariable(value = "id") int outputItemId) {
 
 		outpuItemService.deleteOutputItem(outputItemId);

@@ -11,7 +11,7 @@ public interface OutputItemService {
 	
 	List<OutputItemTo> findOutputItemByMonthId(Integer id);
 	
-	void saveOutputItem(OutputItemTo outputItemTo);
+	OutputItemTo saveOutputItem(OutputItemTo outputItemTo);
 
 	OutputItemTo getOutputItemOutputItem(int id);
 

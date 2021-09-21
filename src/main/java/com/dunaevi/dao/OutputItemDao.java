@@ -10,7 +10,7 @@ public interface OutputItemDao {
 
 	List<OutputItem> findOutputItemByMonthId(Integer id);
 
-	void saveOutputItem(OutputItem outputItem);
+	OutputItem saveOutputItem(OutputItem outputItem);
 
 	OutputItem getOutputItem(int id);
 

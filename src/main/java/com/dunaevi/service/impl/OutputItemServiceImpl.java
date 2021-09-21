@@ -29,11 +29,11 @@ public class OutputItemServiceImpl implements OutputItemService {
 	}
 
 	@Override
-	public void saveOutputItem(OutputItemTo familyIncome) {
+	public OutputItemTo saveOutputItem(OutputItemTo familyIncome) {
 
 		OutputItem oi = outputItemMapper.mapToToEntity(familyIncome);
-		outputItemDao.saveOutputItem(oi);
-
+		oi = outputItemDao.saveOutputItem(oi);
+		return outputItemMapper.mapEntityToTo(oi);
 	}
 
 	@Override

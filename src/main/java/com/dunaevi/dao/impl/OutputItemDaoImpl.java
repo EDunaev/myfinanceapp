@@ -29,10 +29,11 @@ public class OutputItemDaoImpl implements OutputItemDao {
 	}
 
 	@Override
-	public void saveOutputItem(OutputItem outputItem) {
+	public OutputItem saveOutputItem(OutputItem outputItem) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(outputItem);
+		return outputItem; 
 
 	}
 

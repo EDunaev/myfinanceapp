@@ -38,6 +38,12 @@ public class MonthEntryController {
 		return monthEntryService.getMonthEntry(outputItemId);
 
 	}
+	
+	@GetMapping("/api/fill-month-entry/{id}")
+	public Boolean fillMonthEntry(@PathVariable(value = "id") int outputItemId) {
+		return monthEntryService.fillMonthEntry(outputItemId);
+
+	}
 
 	@PostMapping("/api/month-entry")
 	public void saveMonthEntry(@Valid @RequestBody MonthEntryTo outputItemTo) {

@@ -24,7 +24,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan("com.dunaevi")
-@PropertySource({ "classpath:persistence-mysql.properties" })
+@PropertySource({ "classpath:persistence-${envTarget:mysql-dev}.properties" })
 public class ApplicationConfig implements WebMvcConfigurer {
 
 	@Autowired
@@ -42,7 +42,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 
 		// set the jdbc driver
 		try {
-			myDataSource.setDriverClass("org.mariadb.jdbc.Driver");
+			myDataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		} catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}

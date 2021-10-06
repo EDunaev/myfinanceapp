@@ -5,7 +5,7 @@ import org.mapstruct.Mapper;
 import com.dunaevi.controller.to.OutputItemTo;
 import com.dunaevi.entity.OutputItem;
 
-//@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface OutputItemMapper {
 
     OutputItemTo mapEntityToTo(OutputItem source);

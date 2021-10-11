@@ -24,7 +24,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan("com.dunaevi")
-@PropertySource({ "classpath:persistence-${envTarget:mysql-dev}.properties" })
+@PropertySource({ "classpath:persistence-mysql.properties" })
 public class ApplicationConfig implements WebMvcConfigurer {
 
 	@Autowired
